@@ -1,4 +1,3 @@
-#include "exo1.c"
 
 int broadcast(int reseau);
 char *convert_binaire(int number,char *chaine);
