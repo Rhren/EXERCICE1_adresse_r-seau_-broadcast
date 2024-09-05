@@ -129,11 +129,57 @@ void adresse_reseau_broadcast(char *chaine ,char *ip)
 	int deux=decimal(tw);
 	int trois=decimal(th);
 	int quatre=decimal(fo);
+	////////////////////////////////////////////////////////////////////////
+	int q=0;
+	int cc=0;
+	while(chaine[q] != '\0')
+	{
+		if(chaine[q] == '1')
+		{
+			cc++;
+		
+		}
+		q++;
+	}
 	
+	int cot=1;
+	int p=0;
+	char broadcast[33]="";
+	
+	while(ad_reseau[p] != '\0' && cot <=32)
+	{
+			if( cot <= cc)
+			{
+				broadcast[p]=ad_reseau[p];
+			
+			}
+			else
+			{
+				broadcast[p]= '1';
+			
+			}
+			p++;
+			cot++;
+			
+	}
+	
+	char f[9]="";
+	char to[9]="";
+	char thh[9]="";
+	char fr[9]="";
+	
+	strncpy(f,broadcast,8);
+	strncpy(to,broadcast+8,8);
+	strncpy(thh,broadcast+16,8);
+	strncpy(fr,broadcast+24,8);
+	
+	int uu=decimal(f);
+	int dd=decimal(to);
+	int tr=decimal(thh);
+	int qq=decimal(fr);
 	
 	printf("==> l'adresse reseau:   %d.%d.%d.%d\n",premier,deux,trois,quatre);
-	printf("==> l'adresse broadcast: %d.%d.%d.%d",broadcast(premier),broadcast(deux),broadcast(trois),broadcast(quatre));
-	
+	printf("==> l'adresse broadcast: %d.%d.%d.%d",uu,dd,tr,qq);
 	
 }
 void enter_adress()
